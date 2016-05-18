@@ -19,9 +19,10 @@ if (playerCount == 0) {
 		wins: p1Wins,
 		losses: p1Loss,
 	})
-	playerCount++;
+	playerCount = ;
 	$('#startGame').hide();
 	$('#gameStatus').html("<p class='text-center'>Hi!  " + player1 + " you are player 1</p>")
+	console.log(playerCount);
 } else {
 	var player2 = $('#nameInput').val().trim();
 	var p2Wins = 0;
@@ -40,5 +41,12 @@ if (playerCount == 0) {
 	// Don't refresh the page!
 	return false;
 });
+
+//Firebase watcher + initial loader HINT: .on("value")
+gameData.on("child_added", function(snapshot) {
+
+	// Log everything that's coming out of snapshot
+	console.log(snapshot.val());
+
 
 });
